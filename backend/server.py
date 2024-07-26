@@ -16,6 +16,8 @@ def items():
          {"id": 3, "name": "Sticker 3", "description": "hello testing 3", "picture": "picture here 3"}]
     return jsonify(items)
 
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=4000)
 
