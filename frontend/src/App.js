@@ -1,35 +1,30 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
+import Shop from './components/Shop'
+import Header from './components/Header'
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Home from './Home';
+import About from './About';
+import Contact from './Contact';
+import Specific from './Item/Specific';
 
 function App() {
-  const [items, setItems] = useState([])
 
-  useEffect(() => {
-    fetch("/items").then(
-      res => res.json()
-    ).then(
-      data => {
-        setItems(data)
-      }
-    )
-  }, [])
 
 
   return (
-    <div>
-      {items.length === 0 ? (
-        <>
-        <p> loading... </p>
-        </>
-      ) : (
-        items.map((item)=> (
-          <div key={item.id}> 
-          <h2>{item.name}</h2>
-          <p>{item.description}</p>
-          </div>
-        ))
-      )
-    }
+    <Router>
+    <Header />
+    <div className="app-content">
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/shop" element={<Shop/>} />
+        <Route path='/about' element={<About/>} />
+        <Route path='contact' element={<Contact/>} />
+        <Route path='/testing' element={<Specific id={1}/>}/>
+        
+      </Routes>
     </div>
+  </Router>
   )
 }
 

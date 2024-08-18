@@ -1,0 +1,40 @@
+/* App.css or any other stylesheet you are using */
+
+.shop-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .shop-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    width: calc(33.333% - 20px); /* Adjust the width to fit 3 items per row with gaps */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .shop-item h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+  }
+  
+  .shop-item p {
+    margin: 0.5em 0 0;
+    color: #666;
+  }
+  
+  @media (max-width: 768px) {
+    .shop-item {
+      width: calc(50% - 20px); /* Adjust for smaller screens to fit 2 items per row */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .shop-item {
+      width: 100%; /* Adjust for small screens to fit 1 item per row */
+    }
+  }
+  
