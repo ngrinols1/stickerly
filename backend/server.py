@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 import stripe
 
 
-#gunicorn -b 0.0.0.0:4000 server:app 
 #gunicorn -D -w 4 -b 0.0.0.0:4000 server:app
 
 
