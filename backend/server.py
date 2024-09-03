@@ -61,15 +61,6 @@ def find_item(item_id):  # Include item_id as a parameter
 
 
 
-@app.route('/testing')
-def testing():
-    products = Products.query.all()
-    return jsonify([product.to_dict() for product in products])
-
-
-
-
-
 @app.route('/submit', methods=['POST'])
 def submit():
     data = request.json
@@ -97,15 +88,7 @@ def sendorder():
 
     return checkout_session.url
 
-        
-    
 
-
-
-    
-    
-    
-    return jsonify({"message": "Data received"}), 200
 
 
 def createLineItem(cart):
