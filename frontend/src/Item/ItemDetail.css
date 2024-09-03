@@ -1,0 +1,12 @@
+.picture{
+    float:left;
+    margin-right: 20px;
+    max-width: 30%;
+}
+
+.container{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+

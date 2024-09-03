@@ -1,19 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, {  useContext } from "react";
 import "./Shop.css";
+import {  Link } from "react-router-dom";
+import { CartContext } from "../CartContext";
 
 /*
 Page will list all items in the shop, and have a clickable 
 */
 const Shop = () => {
-  const [items, setItems] = useState([]);
 
-  useEffect(() => {
-    fetch("/items")
-      .then((res) => res.json())
-      .then((data) => {
-        setItems(data);
-      });
-  }, []);
+  const { seeItems } = useContext(CartContext);
+  const items = seeItems()
+
+
 
   return (
     <div className="shop-container">
@@ -23,10 +21,15 @@ const Shop = () => {
         </>
       ) : (
         items.map((item) => (
-          <div className="shop-item" key={item.id}>
-            <h2>{item.name}</h2>
-            <p>{item.description}</p>
-          </div>
+          <div className="item-container" key={item.id}> 
+          <Link to={`/item/${item.id}`}>
+            <img src={item.picture} alt={item.name} className="clickable-image" />
+            <span className="itemname">{item.name}</span>
+            <span className="itemprice">${item.price}</span>
+          </Link>
+        </div>
+          
+          
         ))
       )}
     </div>

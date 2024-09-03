@@ -1,0 +1,10 @@
+https://postimg.cc/gallery/2jn1x0L
+
+(name, description, picture, price, stripeID)
+('Sample Name', 'This is a sample description.', 'path/to/picture.jpg', 19.99, 'stripe_sample_id');
+
+INSERT INTO your_table_name (name, description, picture, price, stripeID) VALUES ('Abduction', 'Watch Out! Abduction happening!', 'https://i.postimg.cc/Cx8WpLmK/abduction.png', 3.99, 'prod_QiWf6zs52ONAk4');
+
+('Abduction', 'Watch Out! Abduction happening!', 'https://i.postimg.cc/Cx8WpLmK/abduction.png', 3.99, 'prod_QiWf6zs52ONAk4');
+
+
