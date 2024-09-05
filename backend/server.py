@@ -64,7 +64,6 @@ def find_item(item_id):  # Include item_id as a parameter
 @app.route('/submit', methods=['POST'])
 def submit():
     data = request.json
-    print(data)
     return jsonify({"message": "Data received"}), 200
 
 
@@ -78,8 +77,8 @@ def sendorder():
         checkout_session = stripe.checkout.Session.create(
             line_items= lineitems,
             mode='payment',
-            success_url= "http://localhost:3000/success",
-            cancel_url="http://localhost:3000/unsuccess"
+            success_url= "/success",
+            cancel_url="/unsuccess"
         )
 
 

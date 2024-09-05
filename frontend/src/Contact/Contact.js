@@ -21,7 +21,7 @@ const Contact = () => {
     event.preventDefault();
     console.log('Form data:', formData);
     try {
-        const response = await axios.post('http://localhost:4000/submit', formData);
+        const response = await axios.post('/submit', formData);
         console.log(response.data);
       } catch (error) {
         console.error('Error sending data:', error);
