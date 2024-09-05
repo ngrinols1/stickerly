@@ -24,7 +24,7 @@ const Cart = () => {
 
   const getItemDetail = async (id) => {
     try {
-      const response = await fetch(`http://localhost:4000/finditem/${id}`);
+      const response = await fetch(`/finditem/${id}`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -43,7 +43,7 @@ const Cart = () => {
     console.log("Form data:", cart);
     try {
       const response = await axios.post(
-        "http://localhost:4000/sendorder",
+        "/sendorder",
         cart
       );
       console.log(response.data);

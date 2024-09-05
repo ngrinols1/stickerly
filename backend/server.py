@@ -54,6 +54,7 @@ def items():
 @app.route("/finditem/<int:item_id>")
 def find_item(item_id):  # Include item_id as a parameter
     product = Products.query.get(item_id)
+
     if product:
         return jsonify(product.to_dict())
     else:
@@ -68,23 +69,24 @@ def submit():
 
 
 @app.route('/sendorder', methods=['POST'])
-@cross_origin(origin='*')
 def sendorder():
     data = request.json
+    print(data)
     try:
         lineitems = createLineItem(data)
 
         checkout_session = stripe.checkout.Session.create(
             line_items= lineitems,
             mode='payment',
-            success_url= "/success",
-            cancel_url="/unsuccess"
+            success_url= "http://127.0.0.1:3000/success",
+            cancel_url="http://127.0.0.1:3000/unsuccess"
         )
 
 
     except Exception as e:
+        print(e)
         return str(e)
-
+    print(checkout_session.url)
     return checkout_session.url
 
 
@@ -93,6 +95,7 @@ def sendorder():
 def createLineItem(cart):
     res = []
     for key, quantity in cart.items():
+        print(f'{key}, {quantity}')
         #key will be string, and value will be integer
         product = Products.query.get(int(key))
         if product:
@@ -102,6 +105,7 @@ def createLineItem(cart):
             })
         else:
             raise Exception("Something went wrong")
+    print(res)
     return res
 
 
