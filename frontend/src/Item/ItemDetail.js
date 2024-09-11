@@ -4,7 +4,7 @@ import "./ItemDetail.css"
 import { CartContext } from "../CartContext";
 
 const ItemDetail = () => {
-  const {incrementCart, seeCart} = useContext(CartContext)
+  const {incrementCart} = useContext(CartContext)
   
 
   const { id } = useParams();

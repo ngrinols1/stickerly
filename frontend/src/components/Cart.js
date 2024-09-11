@@ -7,20 +7,15 @@ const Cart = () => {
   const {
     seeCart,
     resetCart,
-    seeItems,
     incrementItemBy1,
     decrementItemBy1,
     removeItem,
-    setCart,
   } = useContext(CartContext);
 
-  const items = seeItems();
   const cart = seeCart();
   const [itemDetails, setItemDetails] = useState({});
 
-  const printItems = () => {
-    console.log(typeof items);
-  };
+  
 
   const getItemDetail = async (id) => {
     try {
@@ -98,7 +93,6 @@ const Cart = () => {
         )}
       </div>
 
-      <button onClick={seeCart}>asdf</button>
       <button onClick={resetCart}>Reset Cart</button>
     </>
 
